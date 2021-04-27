@@ -30,9 +30,9 @@ header
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	height: 6.4vh;
-	width: 6.4vh;
+	height: 6vh;
+	width: 6vh;
 	background-color: white;
-	margin-left: 5vw;
+	margin-left: 2vw;
 	border-radius: 100%;
 }
