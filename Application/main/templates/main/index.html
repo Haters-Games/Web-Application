@@ -4,14 +4,16 @@
 	<head>
 		<title>Супер-пупер-мега крутое веб-приложение</title>
 		<link rel="stylesheet" type="text/css" href="{% static 'main/Styles/main.css' %}">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'main/Pictures/favicon.ico' %}">
 	</head>
 	<body>
 		<header>
 			<div class="logo" id="logo">
 				<img src="{% static 'main/Pictures/logo.png' %}" alt="Logo" style="height: 90%;"/>
-				<span></span>
 			</div>
+			<span class="name">Application Name | Block Name</span>
+			<form class="search" autocomplete=on><input/></form>
 		</header>		
 	</body>
 </html>
