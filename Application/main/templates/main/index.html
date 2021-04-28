@@ -9,11 +9,53 @@
 	</head>
 	<body>
 		<header>
-			<div class="logo" id="logo">
-				<img src="{% static 'main/Pictures/logo.png' %}" alt="Logo" style="height: 90%;"/>
+			<div class="header-left-wrapper">
+				<div class="logo" id="logo">
+					<img src="{% static 'main/Pictures/logo.png' %}" alt="Logo" class="unselectable" style="height: 90%; width: max-content;"/>
+				</div>
+				<span class="name force-selectable">Application Name | Block Name</span>
 			</div>
-			<span class="name">Application Name | Block Name</span>
-			<form class="search" autocomplete=on><input/></form>
-		</header>		
+			<div class="header-right-wrapper">
+				<form class="search"><input class="search-input"  autocomplete=on type="search"/></form>
+			</div>
+		</header>
+		<main>
+			<aside class="nav">
+				<!-- Место для меню перехода по блокам -->
+				<!--
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				-->
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<!-- Нижняя часть меню -->
+				<a href="#" class="menu-element" style="margin-top: auto;">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+				<a href="#" class="menu-element">
+					<img src="{% static 'main/Pictures/square.png'%}" class="unselectable"/>
+				</a>
+			</aside>
+		</main>
 	</body>
 </html>
