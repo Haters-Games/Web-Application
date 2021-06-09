@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- Основная часть -->
+		<title>Churilovo Reports Service</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
+		<link rel="stylesheet" type="text/css" href="{% static 'Server/Styles/Base.css' %}">
+		<link rel="shortcut icon" type="image/x-icon" href="{% static 'Server/Pictures/favicon.ico' %}">
+		<!-- Добавочная часть -->
+		<link rel="stylesheet" type="text/css" href="{% static 'Login/Styles/Login.css' %}">
+	</head>
+	<body>
+		<main>
+			<form>
+				<legend>Сервис отчетов Чурилово</legend>
+				<input type="text" id="login" placeholder="Имя пользователя">
+				<input type="password" id="password" placeholder="Пароль">
+				<button>Войти в систему</button>
+			</form>
+		</main>
+	</body>
+</html>

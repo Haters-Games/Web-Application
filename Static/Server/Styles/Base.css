@@ -1,0 +1,31 @@
+/* Выделение текста всей фразой (для заготовков и т.п) */
+.force-selectable
+{
+	-webkit-user-select: all; /* Blink & Firefox */
+	user-select: all; /* Other */
+}
+
+/* Отмена выделяемости (для изображений и т.п) */
+.unselectable
+{
+	-webkit-touch-callout: none;	/* iOS Safari */
+	-webkit-user-select: none;		/* Chrome, Safari & ssOpera */
+	-khtml-user-select: none;		/* Konqueror */
+	-moz-user-select: none;			/* Firefox */
+	-ms-user-select: none;			/* Internet Explorer & Edge */
+	user-select: none;				/* Other */
+	pointer-events: none;			/* Images */ 
+}
+							  
+*
+{
+	margin: 0;
+	padding: 0;
+	font-family: Roboto, sans-serif;
+}
+
+html, body, main
+{
+    width: 100vw;
+	height: 100vh;
+}
