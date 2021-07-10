@@ -14,11 +14,14 @@
 		<main>
 			<div class="left"></div>
 			<div class="right">
-				<form>
-					<input type="text" id="login" placeholder="Имя пользователя">
-					<input type="password" id="password" placeholder="Пароль">
-					<label><input type="checkbox" id="checkbox">Запомнить меня</label>
-					<button>Войти в систему</button>
+				<form action="/login/" name="auth" method="post">
+					{% csrf_token %}
+					<input type="text" name="username" id="username" placeholder="Имя пользователя">
+					<input type="password" name="password" id="password" placeholder="Пароль">
+					<div class="buttons">
+						<label><input type="checkbox" name="remember-me" id="checkbox">Запомнить меня</label>
+						<button type="submit" name="action" value="login">Войти в систему</button>
+					</div>
 				</form>
 			</div>
 		</main>

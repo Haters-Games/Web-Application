@@ -46,10 +46,19 @@ input
 {
     padding: 1rem;
     font-size: 1rem;
-    width: 20vw;
+    width: 25vw;
     min-width: fit-content;
     border: 0;
     border-bottom: 2px solid;
+    border-radius: 5px 5px 0 0;
+}
+
+.buttons
+{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: calc(25vw + 2rem);
 }
 
 input[type=checkbox]
@@ -69,7 +78,7 @@ button
     background-color: #ccc;
 }
 
-@media (min-width: 800px)
+@media (min-width: 1024px)
 {
     .left
     {
@@ -83,9 +92,14 @@ button
         height: 100vh;
         background-color: #FFF;
     }
+    
+    .buttons
+    {
+        flex-direction: row;
+    }
 }
 
-@media (max-width: 800px)
+@media (max-width: 1024px)
 {
     .left
     {
@@ -107,6 +121,16 @@ button
     {
         background-color: #FFF;
         opacity: 95%;
+    }
+
+    .buttons
+    {
+        flex-direction: column;
+    }
+
+    label
+    {
+        margin-bottom: 1rem;
     }
 }
 
