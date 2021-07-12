@@ -11,55 +11,19 @@
 		<link rel="stylesheet" type="text/css" href="{% static 'Home/Styles/Home.css' %}">
 	</head>
 	<body>
-		<header>
-			<div class="header-left-wrapper">
-				<div class="logo" id="logo">
-					<img src="{% static 'login/Pictures/logo.png' %}" alt="Logo" class="unselectable" style="height: 90%; width: max-content;"/>
-				</div>
-				<span class="name force-selectable">Application Name | Block Name</span>
-			</div>
-			<div class="header-right-wrapper">
-				<form class="search"><input class="search-input"  autocomplete=on type="search"/></form>
-			</div>
-		</header>
 		<main>
-			<h1>Home Page</h1>
-			<aside class="nav">
-				<!-- Место для меню перехода по блокам -->
-				<!--
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				-->
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<!-- Нижняя часть меню -->
-				<a href="#" class="menu-element" style="margin-top: auto;">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-				<a href="#" class="menu-element">
-					<img src="{% static 'login/Pictures/square.png'%}" class="unselectable"/>
-				</a>
-			</aside>
+			<menu>
+				<ul>
+					<!-- Основное меню -->
+					<li class="item"><span></span><div class="icon"></div></li>
+					<li class="item"><span>Продолжить</span><div class="icon"></div></li>
+					<li class="item"><span>Создать отчёт</span><div class="icon"></div></li>
+					<li class="item"><span>Просмотр отчёта</span><div class="icon"></div></li>
+
+					<!-- Профиль -->
+					<li class="item"><span>{{ user.get_username }}</span><button class="icon"></button></li>
+				</ul>
+			</menu>
 		</main>
 	</body>
 </html>
