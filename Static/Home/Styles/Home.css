@@ -39,9 +39,9 @@ menu > ul
     margin-top: auto;
 }
 
-.item:hover
+.item:not(:first-child):hover
 {
-    background-color: red;
+    background-color: #CCC;
 }
 
 .icon
