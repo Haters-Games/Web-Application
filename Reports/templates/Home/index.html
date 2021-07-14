@@ -2,26 +2,48 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<!-- Основная часть -->
-		<title>Churilovo Reports Service</title>
+		{% load templates %}
+		<!-- {% autoescape off %}
+			{% head %}
+		{% endautoescape %} -->
+		<title>Сервис отчетов Чурилово</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="stylesheet" type="text/css" href="{% static 'Server/Styles/Base.css' %}">
 		<link rel="shortcut icon" type="image/x-icon" href="{% static 'Server/Pictures/favicon.ico' %}">
-		<!-- Добавочная часть -->
+		
 		<link rel="stylesheet" type="text/css" href="{% static 'Home/Styles/Home.css' %}">
 	</head>
 	<body>
 		<main>
+			<!--  -->
 			<menu>
 				<ul>
 					<!-- Основное меню -->
-					<li class="item"><span></span><button class="icon"></button></li>
-					<li class="item"><span>Продолжить</span><button class="icon"></button></li>
-					<li class="item"><span>Создать отчёт</span><button class="icon"></button></li>
-					<li class="item"><span>Просмотр отчёта</span><button class="icon"></button></li>
+					<li class="item">
+						<span></span>
+						<button class="icon"></button>
+					</li>
+					<li class="item">
+						<span>Продолжить</span>
+						<button class="icon"></button>
+					</li>
+					<li class="item">
+						<span>Создать отчёт</span>
+						<button class="icon"></button>
+					</li>
+					<li class="item">
+						<span>Просмотр отчёта</span>
+						<button class="icon"></button>
+					</li>
 
 					<!-- Профиль -->
-					<li class="item"><span>{{ user.get_username }}</span><button class="icon"></button></li>
+					<li class="item">
+						<span>{{ user.get_username }}</span>
+						<form action="/login/" method="post">
+							{% csrf_token %}
+							<button class="icon" type="submit" name="action" value="exit">Exit</button>
+						</form>
+					</li>
 				</ul>
 			</menu>
 		</main>

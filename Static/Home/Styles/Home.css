@@ -50,4 +50,5 @@ menu > ul
     height: 2.2rem;
     width: 2.2rem;
     background-size: cover;
+    border: 0;
 }
