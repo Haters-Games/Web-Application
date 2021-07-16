@@ -6,7 +6,7 @@ class Report(models.Model):
     """
     
     # Fields
-    publication_date = models.DateTimeField(verbose_name='Дата создания отчета')
+    publication_date = models.DateTimeField
     production_department = models.BigIntegerField(verbose_name='Номер производственного отделения', default=0)
     greenhouse = models.BigIntegerField(verbose_name='Номер теплицы', default=0)
     report_comment = models.CharField(verbose_name='Комментарий к отчету', max_length=255)
@@ -28,3 +28,12 @@ class Report(models.Model):
         #String for representing the MyModelName object (in Admin site etc.)
         #"""
         #return self.field_name
+
+class Menu(models.Model):
+    url = models.FilePathField(verbose_name='Применение к', default="")
+    # items = models.ArrayField(
+    #     models.CharField(max_length=15, blank=True, verbose_name='Название пункта'),
+    #     size=8,
+    #     verbose_name='Пункты меню'
+    # )
+    items = models.JSONField(verbose_name='Пункты меню', default=dict)

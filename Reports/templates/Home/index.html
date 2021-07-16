@@ -11,10 +11,9 @@
 		<main>
 			<menu>
 				<ul>
-					<!-- Основное меню -->
 					<li class="item">
 						<span></span>
-						<button class="icon"></button>
+						<button class="icon" id="menu-button"></button>
 					</li>
 					<li class="item">
 						<span>Продолжить</span>
@@ -29,12 +28,11 @@
 						<button class="icon"></button>
 					</li>
 
-					<!-- Профиль -->
 					<li class="item">
 						<span>{{ user.get_username }}</span>
 						<form action="/login/" method="post">
 							{% csrf_token %}
-							<button class="icon" type="submit" name="action" value="exit">Exit</button>
+							<button class="icon" type="submit" name="action" value="exit"></button>
 						</form>
 					</li>
 				</ul>
