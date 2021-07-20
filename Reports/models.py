@@ -40,6 +40,10 @@ class Menu(models.Model):
     # )
     # items = models.JSONField(verbose_name='Пункты меню', default=dict)
 
+    # Metadata
+    class Meta:
+        ordering = ["-url"]
+
     # Methods
     def __str__(self):
         return self.field_name
