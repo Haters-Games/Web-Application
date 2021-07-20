@@ -17,15 +17,24 @@
 					</li>
 					<li class="item">
 						<span>Продолжить</span>
-						<button class="icon" id="continue"></button>
+						<form action="/login/" method="post">
+							{% csrf_token %}
+							<button class="icon" id="continue" type="submit" name="action" value=""></button>
+						</form>
 					</li>
 					<li class="item">
 						<span>Создать отчёт</span>
-						<button class="icon" id="create"></button>
+						<form action="/login/" method="post">
+							{% csrf_token %}
+							<button class="icon" id="create" type="submit" name="action" value=""></button>
+						</form>
 					</li>
 					<li class="item">
 						<span>Просмотр отчёта</span>
-						<button class="icon" id="view"></button>
+						<form action="/view/" method="post">
+							{% csrf_token %}
+							<button class="icon" id="view" type="submit" name="action"></button>
+						</form>
 					</li>
 
 					<li class="item">

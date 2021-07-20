@@ -11,6 +11,11 @@ class Report(models.Model):
     greenhouse = models.BigIntegerField(verbose_name='Номер теплицы', default=0)
     report_comment = models.CharField(verbose_name='Комментарий к отчету', max_length=255)
     
+    def __str__(self):
+        """
+        String for representing the MyModelName object (in Admin site etc.)
+        """
+        return self.field_name
     
     # Metadata
     # class Meta:
@@ -23,11 +28,6 @@ class Report(models.Model):
          #"""
          #return reverse('model-detail-view', args=[str(self.id)])
 
-    #def __str__(self):
-        #"""
-        #String for representing the MyModelName object (in Admin site etc.)
-        #"""
-        #return self.field_name
 
 class Menu(models.Model):
     url = models.FilePathField(verbose_name='Применение к', default="")
@@ -36,4 +36,4 @@ class Menu(models.Model):
     #     size=8,
     #     verbose_name='Пункты меню'
     # )
-    items = models.JSONField(verbose_name='Пункты меню', default=dict)
+    # items = models.JSONField(verbose_name='Пункты меню', default=dict)

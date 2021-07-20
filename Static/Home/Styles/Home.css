@@ -43,37 +43,3 @@ menu > ul
 {
     background-color: #CCC;
 }
-
-.icon
-{
-    background: url("../../Home/Pictures/square.png");
-    height: 2.2rem;
-    width: 2.2rem;
-    background-size: cover;
-    border: 0;
-}
-
-.icon#menu
-{
-    background-image: url("../../Server/Pictures/Icons/menu.svg");
-}
-
-.icon#continue
-{
-    background-image: url("../../Server/Pictures/Icons/continue.svg");
-}
-
-.icon#create
-{
-    background-image: url("../../Server/Pictures/Icons/add.svg");
-}
-
-.icon#view
-{
-    /* background-image: url("../../Server/Pictures/Icons/"); */
-}
-
-.icon#exit
-{
-    background-image: url("../../Server/Pictures/Icons/logout.svg");
-}
