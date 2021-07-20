@@ -13,26 +13,26 @@
 				<ul>
 					<li class="item">
 						<span></span>
-						<button class="icon" id="menu-button"></button>
+						<button class="icon" id="menu"></button>
 					</li>
 					<li class="item">
 						<span>Продолжить</span>
-						<button class="icon"></button>
+						<button class="icon" id="continue"></button>
 					</li>
 					<li class="item">
 						<span>Создать отчёт</span>
-						<button class="icon"></button>
+						<button class="icon" id="create"></button>
 					</li>
 					<li class="item">
 						<span>Просмотр отчёта</span>
-						<button class="icon"></button>
+						<button class="icon" id="view"></button>
 					</li>
 
 					<li class="item">
 						<span>{{ user.get_username }}</span>
 						<form action="/login/" method="post">
 							{% csrf_token %}
-							<button class="icon" type="submit" name="action" value="exit"></button>
+							<button class="icon" id="exit" type="submit" name="action" value="exit"></button>
 						</form>
 					</li>
 				</ul>
