@@ -9,7 +9,34 @@
 	</head>
 	<body>
 		<main>
-			
+			<menu>
+				<ul>
+					<li class="item">
+						<span></span>
+						<button class="icon" id="menu"></button>
+					</li>
+					<li class="item">
+						<span>Открыть отчёт</span>
+						<button class="icon" id="view"></button>
+					</li>
+					<li class="item">
+						<span>Поиск отчёта</span>
+						<button class="icon" id="search"></button>
+					</li>
+					<li class="item">
+						<span>Назад</span>
+						<button class="icon" id="back"></button>
+					</li>
+
+					<li class="item">
+						<span>{{ user.get_username }}</span>
+						<form action="/login/" method="post">
+							{% csrf_token %}
+							<button class="icon" id="exit" type="submit" name="action" value="exit"></button>
+						</form>
+					</li>
+				</ul>
+			</menu>
 		</main>
 	</body>
 </html>
