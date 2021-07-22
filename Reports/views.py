@@ -38,6 +38,12 @@ def _login(request):
 
     return render(request, './Login/index.html')
 
+
 @login_required(redirect_field_name='')
 def _home(request):
     return render(request, './Home/index.html')
+
+
+@login_required(redirect_field_name='')
+def _view(request):
+    return render(request, './View/index.html')

@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Krita: https://krita.org -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="368.64pt"
+    height="368.64pt"
+    viewBox="0 0 368.64 368.64">
+<defs/>
+<path id="shape0" transform="translate(58.8600010826077, 143.430609824362)" fill="none" stroke="#000000" stroke-width="7.2" stroke-linecap="square" stroke-linejoin="bevel" d="M83.6927 170.695C61.2626 165.373 41.0796 172.649 19.98 135.929C-1.18045 89.5998 1.98456 46.359 0 0.0293928C1.04083 -1.45325 104.655 53.5696 120.095 71.1622C136.885 107.546 115.928 130.886 108.894 158.73C91.3684 99.7657 59.2298 75.2611 33.7993 40.8894C71.7076 114.811 88.3387 158.08 83.6927 170.695Z"/><path id="shape1" transform="translate(93.5779931335548, 186.016852005802)" fill="none" stroke="#000000" stroke-width="7.2" stroke-linecap="square" stroke-linejoin="bevel" d="M0.0358732 0.00172799C-1.5764 -0.425056 51.6792 78.2647 54.592 169.061C61.9166 166.035 64.9385 162.307 78.2645 162.308C82.5749 113.063 56.4987 58.9603 0.0358732 0.00172799Z"/><path id="shape2" transform="translate(175.320004279679, 79.1337330313736)" fill="none" stroke="#000000" stroke-width="7.2" stroke-linecap="square" stroke-linejoin="bevel" d="M80.4805 0.180672C80.6727 -3.68952 51.8365 55.0076 34.9453 138.768C28.2687 171.899 24.1448 209.268 22.981 248.992C17.0631 242.619 9.20074 238.92 0.579874 236.264L0 203.826C4.33672 185.354 13.3892 169.24 9 146.405C16.1595 97.1218 39.9863 48.3804 80.4805 0.180672Z"/><path id="shape3" transform="translate(118.234278332934, 17.2755265927072)" fill="none" stroke="#000000" stroke-width="7.2" stroke-linecap="square" stroke-linejoin="bevel" d="M83.5918 283.49C105.6 280.075 140.166 282.878 176.571 225.325C211.812 167.298 173.169 44.0024 176.317 0.0405498C176.267 -1.37753 88.4907 34.5832 33.6291 78.9108C13.3256 99.2152 4.01654 122.353 0 155.113C11.8746 164.944 66.7147 189.692 66.24 207.888C67.7327 234.109 60.8624 250.608 56.8017 269.491C57.6867 284.815 57.5855 290.305 58.4691 298.876C64.8435 298.122 75.064 306.203 83.3091 314.716C82.969 303.833 83.0633 293.425 83.5918 283.49Z"/>
+</svg>
