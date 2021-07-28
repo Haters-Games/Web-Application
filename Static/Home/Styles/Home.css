@@ -9,7 +9,7 @@ menu
 {
     width: 25vw;
     /* height: 100vh; */
-    background-color: #FFF;
+    background-color: var(--white);
     float: right;
     /* display: flex; */
     font-size: 1.2em;
@@ -41,5 +41,5 @@ menu > ul
 
 .item:not(:first-child):hover
 {
-    background-color: #CCC;
+    background-color: var(--gray);
 }
