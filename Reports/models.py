@@ -79,7 +79,7 @@ class Report(models.Model):
         return self.field_name + str(self.id) + " от " + str(self.measurement_date.day) + "." + str(self.measurement_date.month) + "." + str(self.measurement_date.year) + " (Теплица №" + str(self.greenhouse) + ")"
     
     # def __str__(self):
-    #     return "ФАР за час: " + str(self.PAR_for_hour_from_lighting_system) + ", ФАР за день: " + str(self.PAR_per_day_from_lighting_system) + ", ФАР всего: " + str(self.total_PAR)
+    #     return "ФАР за час: " + str(self.PAR_for_hour_from_lighting_system) + ", ФАР за день: " + str(self.PAR_per_day_from_lighting_system) + ", ФАР всего: " + str(self.total_PAR) + ", дельта Тд-Тн: " + str(self.temp_delta)
     
     def getPARPerHour(self):
         """Функция определяющая количество фотосинтетически активной радиации в час по мощности системы досвечивания"""
@@ -104,6 +104,11 @@ class Report(models.Model):
     
     def getTotalPAR(self):
         return round(self.solar_radiation_per_day * decimal.Decimal(self.glazing_throughput / 100) + self.PAR_per_day_from_lighting_system, 2)
+    
+
+    def getTempDelta(self):
+        return(self.temp_day - self.temp_night)
+
 
     # Поля модели
     # -- Заглавная часть --
@@ -132,6 +137,17 @@ class Report(models.Model):
     total_PAR = property(getTotalPAR) # Суммарная ФАР с досветкой
 
     # -- Микроклимат растений --
+    # Т дневная
+    temp_day = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т дневная')
+    # Т ночная
+    temp_night = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т ночная')
+    # Т макс дневная
+    temp_day_max = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т макс дневная')
+    # дельта Тд-Тн
+    temp_delta = property(getTempDelta)
+    # Т среднесуточная
+    temp_day_avr = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т среднесуточная')
+
 
 
     # Метадата
