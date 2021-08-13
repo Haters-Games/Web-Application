@@ -1,5 +1,7 @@
 from django.db import models
-from django.core.validators import MaxValueValidator
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.db.models.fields import DecimalField
+import decimal
 # from django.db.models.fields import SmallIntegerField
 # import django.contrib.auth
 
@@ -69,7 +71,40 @@ class Report(models.Model):
     """
     Класс для создания отчетов.
     """
+
+
+    # Методы
+    def __str__(self):
+        """Описание экземпляра модели в панели админа"""
+        return self.field_name + str(self.id) + " от " + str(self.measurement_date.day) + "." + str(self.measurement_date.month) + "." + str(self.measurement_date.year) + " (Теплица №" + str(self.greenhouse) + ")"
     
+    # def __str__(self):
+    #     return "ФАР за час: " + str(self.PAR_for_hour_from_lighting_system) + ", ФАР за день: " + str(self.PAR_per_day_from_lighting_system) + ", ФАР всего: " + str(self.total_PAR)
+    
+    def getPARPerHour(self):
+        """Функция определяющая количество фотосинтетически активной радиации в час по мощности системы досвечивания"""
+        values_dict = {
+            23000: 82,
+            22000: 79,
+            21000: 75,
+            20000: 71,
+            19000: 68,
+            18000: 64,
+            17000: 61,
+            16000: 57,
+            15500: 55
+        }
+
+        return values_dict.get(self.lighting_system_power, 0)
+
+
+    def getPARPerDay(self):
+        return self.PAR_for_hour_from_lighting_system * self.lighting_system_operating_time
+
+    
+    def getTotalPAR(self):
+        return round(self.solar_radiation_per_day * decimal.Decimal(self.glazing_throughput / 100) + self.PAR_per_day_from_lighting_system, 2)
+
     # Поля модели
     # -- Заглавная часть --
     field_name = "Отчет №"
@@ -81,26 +116,23 @@ class Report(models.Model):
     report_comment = models.CharField(verbose_name='Комментарий к отчету', max_length=255, blank=True)
 
     # -- Обеспеченность растений светом --
-    solar_radiation_per_day = models.PositiveIntegerField(verbose_name='Приход естественной солнечной радиации за сутки')
-    light_intensity = models.PositiveIntegerField(verbose_name='Интенсивность естественного света')
-    light_intensity_per_day = models.PositiveIntegerField(verbose_name='Интенсивность естественного света (за световой день)')
-    glazing_throughput = models.PositiveIntegerField(validators=[MaxValueValidator(100)], verbose_name='Пропускная способность остекления (в процентах)')
+    solar_radiation_per_day = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Приход естественной солнечной радиации за сутки')
+    light_intensity = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Интенсивность естественного света')
+    light_intensity_per_day = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Интенсивность естественного света (за световой день)')
+    glazing_throughput = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(100.00)], verbose_name='Пропускная способность остекления (в процентах)')
     sunrise_time = models.TimeField(verbose_name='Время естественного восхода Солнца')
     sunset_time = models.TimeField(verbose_name='Время естественного захода Солнца')
-    lighting_system_power = models.PositiveIntegerField(verbose_name='Мощность системы досвечивания')
+    lighting_system_power = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Мощность системы досвечивания')
     lighting_system_turn_on_time = models.TimeField(verbose_name='Время включения досвечивания')
     lighting_system_turn_off_time = models.TimeField(verbose_name='Время отключения досвечивания')
-    lighting_system_operating_time = models.PositiveIntegerField(verbose_name='Количество часов работы системы досвечивания (50% вкл и откл берутся как 0,5 за 1 полный час)')
+    lighting_system_operating_time = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(100.00)], verbose_name='Количество часов работы системы досвечивания (50% вкл и откл берутся как 0,5 за 1 полный час)')
     unlit_light_points = models.PositiveIntegerField(verbose_name='Количество негорящих светоточек')
-    # PAR_for_hour_from_lighting_system = models.PositiveIntegerField(verbose_name='Приход ФАР за 1 час от системы досвечивания') - формула
-    # PAR_per_day_from_lighting_system = models.PositiveIntegerField(verbose_name='Приход ФАР за 1 сутки от системы досвечивания') - формула
-    # total_PAR = models.PositiveIntegerField(verbose_name='Суммарная ФАР с досветкой') - формула
+    PAR_for_hour_from_lighting_system = property(getPARPerHour) # приход ФАР за 1 час от системы досвечивания
+    PAR_per_day_from_lighting_system = property(getPARPerDay) # приход ФАР/сут от системы досвечивания
+    total_PAR = property(getTotalPAR) # Суммарная ФАР с досветкой
 
+    # -- Микроклимат растений --
 
-    # Методы
-    def __str__(self):
-        return self.field_name + str(self.id) + " от " + str(self.measurement_date.day) + "." + str(self.measurement_date.month) + "." + str(self.measurement_date.year) + " (Теплица №" + str(self.greenhouse) + ")"
-    
 
     # Метадата
     class Meta:
