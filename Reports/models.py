@@ -79,7 +79,7 @@ class Report(models.Model):
         return self.field_name + str(self.id) + " от " + str(self.measurement_date.day) + "." + str(self.measurement_date.month) + "." + str(self.measurement_date.year) + " (Теплица №" + str(self.greenhouse) + ")"
     
     # def __str__(self):
-    #     return "ФАР за час: " + str(self.PAR_for_hour_from_lighting_system) + ", ФАР за день: " + str(self.PAR_per_day_from_lighting_system) + ", ФАР всего: " + str(self.total_PAR) + ", дельта Тд-Тн: " + str(self.temp_delta)
+    #     return 
     
     def getPARPerHour(self):
         """Функция определяющая количество фотосинтетически активной радиации в час по мощности системы досвечивания"""
@@ -109,6 +109,9 @@ class Report(models.Model):
     def getTempDelta(self):
         return(self.temp_day - self.temp_night)
 
+    def getPHDelta(self):
+        return(self.RH_day - self.RH_night)
+
 
     # Поля модели
     # -- Заглавная часть --
@@ -125,8 +128,8 @@ class Report(models.Model):
     light_intensity = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Интенсивность естественного света')
     light_intensity_per_day = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Интенсивность естественного света (за световой день)')
     glazing_throughput = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(100.00)], verbose_name='Пропускная способность остекления (в процентах)')
-    sunrise_time = models.TimeField(verbose_name='Время естественного восхода Солнца')
-    sunset_time = models.TimeField(verbose_name='Время естественного захода Солнца')
+    time_sunrise = models.TimeField(verbose_name='Время естественного восхода Солнца')
+    time_sunset = models.TimeField(verbose_name='Время естественного захода Солнца')
     lighting_system_power = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Мощность системы досвечивания')
     lighting_system_turn_on_time = models.TimeField(verbose_name='Время включения досвечивания')
     lighting_system_turn_off_time = models.TimeField(verbose_name='Время отключения досвечивания')
@@ -134,20 +137,25 @@ class Report(models.Model):
     unlit_light_points = models.PositiveIntegerField(verbose_name='Количество негорящих светоточек')
     PAR_for_hour_from_lighting_system = property(getPARPerHour) # приход ФАР за 1 час от системы досвечивания
     PAR_per_day_from_lighting_system = property(getPARPerDay) # приход ФАР/сут от системы досвечивания
-    total_PAR = property(getTotalPAR) # Суммарная ФАР с досветкой
+    PAR_total = property(getTotalPAR) # Суммарная ФАР с досветкой
 
     # -- Микроклимат растений --
-    # Т дневная
     temp_day = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т дневная')
-    # Т ночная
     temp_night = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т ночная')
-    # Т макс дневная
     temp_day_max = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т макс дневная')
-    # дельта Тд-Тн
-    temp_delta = property(getTempDelta)
-    # Т среднесуточная
+    temp_delta = property(getTempDelta) # дельта Тд-Тн
     temp_day_avr = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Т среднесуточная')
-
+    CO2_avg_concentration_per_day = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Средняя концентрация в течении светового дня СО2')
+    CO2_maximum_supply = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Макс. подача СО2')
+    CO2_start_time_supply = models.TimeField(verbose_name='Время начала подачи СО2')
+    CO2_end_time_supply = models.TimeField(verbose_name='Время окончания подачи СО2')
+    gas_measurements_nitrogen_oxide = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Замеры отходящих газов с котельной - Окись Азота')
+    gas_measurements_nitrogen_dioxide = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Замеры отходящих газов с котельной - Азота диоксид')
+    gas_measurements_carbon_monoxide = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='Замеры отходящих газов с котельной - Угарный газ')
+    RH_day = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(100.00)], verbose_name='ОВВ дневная')
+    RH_night = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(100.00)], verbose_name='ОВВ ночная')
+    RH_delta = property(getPHDelta) # дельта ОВВн- ОВВд
+    DVP = models.DecimalField(max_digits=10, decimal_places=2, validators=[MinValueValidator(0.00)], verbose_name='ДВП')
 
 
     # Метадата
