@@ -226,8 +226,6 @@ class Report(models.Model):
     pollination = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(100.00)], verbose_name='Опыление')
 
 
-
-
     # Метадата
     class Meta:
         ordering = ['greenhouse', 'measurement_date']
