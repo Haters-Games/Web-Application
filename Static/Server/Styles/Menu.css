@@ -1,0 +1,11 @@
+#Menu
+{
+	width: 25vw;
+	opacity: 0.85;
+}
+
+form.menu-button-element
+{
+	margin-left:auto;
+	z-index: 1;
+}

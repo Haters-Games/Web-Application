@@ -24,10 +24,20 @@
 
 .icon#view
 {
-    /* background-image: url("../../Server/Pictures/Icons/"); */
+    background-image: url("../../Server/Pictures/Icons/view.svg"); 
 }
 
 .icon#exit
 {
     background-image: url("../../Server/Pictures/Icons/logout.svg");
+}
+
+.icon#search
+{
+    background-image: url("../../Server/Pictures/Icons/search.svg"); 
+}
+
+.icon#back
+{
+    background-image: url("../../Server/Pictures/Icons/back.svg");
 }

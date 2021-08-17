@@ -9,37 +9,37 @@
 	</head>
 	<body>
 		<main>
-			<menu>
+			<menu id = "Menu">
 				<ul>
 					<li class="item">
 						<span></span>
-						<button class="icon" id="menu"></button>
+						<button class="icon" id="menu" onclick="MenuButton();"></button>
 					</li>
 					<li class="item">
-						<span>Продолжить</span>
-						<form action="/login/" method="post">
+						<span class="item-text">Продолжить</span>
+						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="continue" type="submit" name="action" value=""></button>
 						</form>
 					</li>
 					<li class="item">
-						<span>Создать отчёт</span>
-						<form action="/login/" method="post">
+						<span class="item-text">Создать отчёт</span>
+						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="create" type="submit" name="action" value=""></button>
 						</form>
 					</li>
 					<li class="item">
-						<span>Просмотр отчёта</span>
-						<form action="/view/" method="post">
+						<span class="item-text">Просмотр отчёта</span>
+						<form class="menu-button-element" action="/view/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="view" type="submit" name="action"></button>
 						</form>
 					</li>
 
 					<li class="item">
-						<span>{{ user.get_username }}</span>
-						<form action="/login/" method="post">
+						<span class="item-text">{{ user.get_username }}</span>
+						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="exit" type="submit" name="action" value="exit"></button>
 						</form>
