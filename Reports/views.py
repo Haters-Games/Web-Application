@@ -1,3 +1,4 @@
+from .forms import ReportForm
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -46,4 +47,4 @@ def _home(request):
 
 @login_required(redirect_field_name='')
 def _view(request):
-    return render(request, './View/index.html')
+    return render(request, './View/index.html',  {'Report': ReportForm()})

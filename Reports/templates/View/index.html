@@ -9,6 +9,12 @@
 	</head>
 	<body>
 		<main>
+
+			<form method="post" action="">
+				{% csrf_token %}
+				{{ Report }}
+			</form>
+
 			<menu>
 				<ul>
 					<li class="item">
