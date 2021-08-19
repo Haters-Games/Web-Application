@@ -8,7 +8,7 @@
 		{% endautoescape %}
 		
 		<script>
-			statusMenu = "close";
+			statusMenu = 0;
 		</script>
 	</head>
 	<body>
@@ -16,7 +16,7 @@
 			<menu id = "Menu">
 				<ul>
 					<li class="item">
-						<button class="icon" id="menu" onclick="MenuReportButton();"></button>
+						<button class="icon" id="menu" onclick="MenuButton();"></button>
 						<span></span>
 					</li>
 					<li class="item">
@@ -49,79 +49,130 @@
 					</li>
 				</ul>
 			</menu>
-		
-			<table class="table">
-				<thead>
-					<tr>
-					  <th scope="col">Параметры</th>
-					  <th scope="col">Значения</th>
-					</tr>
-				 </thead>
-				<tbody id="tbody">
-					<form method="post" action="">
-						{% csrf_token %}
-						<tr><th id="Main-block"><th><th/></tr>
+			<div class=wrapper>
+				<form>
+					{% csrf_token %}
+					<fieldset id="Main-block">
+						<legend>Основаная информация</legend>
 						{% for field in ReportMain %}
-							<tr>
-								<td>{{ field.label_tag }}</td> 
-								<td>{{ field }} </td>
-							</tr>
+						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
-						
-						<tr><th scope="col" id="Light-block">Обеспеченность растений светом</th><th/></tr>
+					</fieldset>
+					<fieldset id="Light-block">
+					<legend>Обеспеченность растений светом</legend>
 						{% for field in ReportLight %}
-							<tr>
-								<td>{{ field.label_tag }}</td> 
-								<td>{{ field }} </td>
-							</tr>
+						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
-						
-						<tr><th scope="col" id="Microclimate-block">Микроклимат растений</th><th/></tr>
+					</fieldset>
+					<fieldset id="Microclimate-block">
+					<legend>Микроклимат растений</legend>
 						{% for field in ReportMicroclimate %}
-							<tr>
-								<td>{{ field.label_tag }}</td> 
-								<td>{{ field }} </td>
-							</tr>
+						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
-						
-						<tr><th scope="col" id="Watering-block">Полив растений</th><th/></tr>
+					</fieldset>
+					<fieldset id="Watering-block">
+					<legend>Полив растений</legend>
 						{% for field in ReportWatering %}
-							<tr>
-								<td>{{ field.label_tag }}</td> 
-								<td>{{ field }} </td>
-							</tr>
+						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
-						
-						<tr><th scope="col" id="Phenology-block">Фенология растений</th><th/></tr>
+					</fieldset>
+					<fieldset id="Phenology-block">
+					<legend>Фенология растений</legend>
 						{% for field in ReportPhenology %}
-							<tr>
-								<td>{{ field.label_tag }}</td> 
-								<td>{{ field }} </td>
-							</tr>
+						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
-
-						<tr><th scope="col" id="Analyzes-block">Анализы  агрохимлаборатории (анализы проводятся лаборантом и агрохимиком)</th><th/></tr>
+					</fieldset>
+					<fieldset id="Analyzes-block">
+					<legend>Анализы  агрохимлаборатории</legend>
 						{% for field in ReportAnalyzes %}
-							<tr>
-								<td>{{ field.label_tag }}</td> 
-								<td>{{ field }} </td>
-							</tr>
+						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
-						
-						<tr><th scope="col" id="Protect-block">Защита растений</th><th/></tr>
+					</fieldset>
+					<fieldset id="Protect-block">
+					<legend>Защита растений</legend>
 						{% for field in ReportProtection %}
-							<tr>
-								<td>{{ field.label_tag }}</td> 
-								<td>{{ field }} </td>
-							</tr>
+						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
-					</form>
-				</tbody>
-			</table>
-			<form class="send-form" action="/report/" method="post">
-				{% csrf_token %}
-				<button class="send-button" type="submit" name="action">Отправить</button>
-			</form>
+					</fieldset>
+					<button class="send-button" type="submit" name="action">Отправить</button>
+				</form>
+			</div>
+			
+			
+				<!--
+				<table class="table">
+					<thead>
+						<tr>
+						  <th scope="col">Параметры</th>
+						  <th scope="col">Значения</th>
+						</tr>
+					 </thead>
+					<tbody id="tbody">
+						<form method="post" action="">
+							{% csrf_token %}
+							<tr><th id="Main-block"><th><th/></tr>
+							{% for field in ReportMain %}
+								<tr>
+									<td>{{ field.label_tag }}</td> 
+									<td>{{ field }} </td>
+								</tr>
+							{% endfor %}
+							
+							<tr><th scope="col" id="Light-block">Обеспеченность растений светом</th><th/></tr>
+							{% for field in ReportLight %}
+								<tr>
+									<td>{{ field.label_tag }}</td> 
+									<td>{{ field }} </td>
+								</tr>
+							{% endfor %}
+							
+							<tr><th scope="col" id="Microclimate-block">Микроклимат растений</th><th/></tr>
+							{% for field in ReportMicroclimate %}
+								<tr>
+									<td>{{ field.label_tag }}</td> 
+									<td>{{ field }} </td>
+								</tr>
+							{% endfor %}
+							
+							<tr><th scope="col" id="Watering-block">Полив растений</th><th/></tr>
+							{% for field in ReportWatering %}
+								<tr>
+									<td>{{ field.label_tag }}</td> 
+									<td>{{ field }} </td>
+								</tr>
+							{% endfor %}
+							
+							<tr><th scope="col" id="Phenology-block">Фенология растений</th><th/></tr>
+							{% for field in ReportPhenology %}
+								<tr>
+									<td>{{ field.label_tag }}</td> 
+									<td>{{ field }} </td>
+								</tr>
+							{% endfor %}
+
+							<tr><th scope="col" id="Analyzes-block">Анализы  агрохимлаборатории (анализы проводятся лаборантом и агрохимиком)</th><th/></tr>
+							{% for field in ReportAnalyzes %}
+								<tr>
+									<td>{{ field.label_tag }}</td> 
+									<td>{{ field }} </td>
+								</tr>
+							{% endfor %}
+							
+							<tr><th scope="col" id="Protect-block">Защита растений</th><th/></tr>
+							{% for field in ReportProtection %}
+								<tr>
+									<td>{{ field.label_tag }}</td> 
+									<td>{{ field }} </td>
+								</tr>
+							{% endfor %}
+						</form>
+					</tbody>
+				</table>
+				<form class="send-form" action="/report/" method="post">
+					{% csrf_token %}
+					<button class="send-button" type="submit" name="action">Отправить</button>
+				</form>
+				-->
 		</main>
 	</body>
 </html>

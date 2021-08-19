@@ -12,37 +12,37 @@
 			<menu id = "Menu">
 				<ul>
 					<li class="item">
-						<span></span>
 						<button class="icon" id="menu" onclick="MenuButton();"></button>
+						<span></span>
 					</li>
 					<li class="item">
-						<span class="item-text">Открыть отчёт</span>
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="view" type="submit" name="action" value=""></button>
 						</form>
+						<span class="item-text">Открыть отчёт</span>
 					</li>
 					<li class="item">
-						<span class="item-text">Поиск отчёта</span>
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="search" type="submit" name="action" value=""></button>
 						</form>
+						<span class="item-text">Поиск отчёта</span>
 					</li>
 					<li class="item">
-						<span class="item-text">Назад</span>
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="back" type="submit" name="action"></button>
 						</form>
+						<span class="item-text">Назад</span>
 					</li>
 
 					<li class="item">
-						<span class="item-text">{{ user.get_username }}</span>
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
 							<button class="icon" id="exit" type="submit" name="action" value="exit"></button>
 						</form>
+						<span class="item-text">{{ user.get_username }}</span>
 					</li>
 				</ul>
 			</menu>

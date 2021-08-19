@@ -1,3 +1,11 @@
+body
+{
+	background: url("../../Login/Pictures/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+	background-attachment: fixed;
+}
+
 main
 {
 	display: flex;
@@ -31,6 +39,7 @@ menu > ul
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+	z-index: 1;
 }
 
 .item-text
@@ -39,9 +48,46 @@ menu > ul
     opacity: 0;
 }
 
-/*Table*/
-.table {
+.wrapper
+{
+	display: flex;
 	width: 100%;
+	justify-content: center;
+	padding-top: 5vh;
+    padding-bottom: 5vh;
+}
+
+fieldset
+{
+	display: flex;
+	width: 100%;
+    flex-direction: column;
+	padding: 2rem;
+	margin-bottom: 1rem;
+	background-color: rgba(255, 255, 255, 0.8);
+	border: 0;
+}
+
+fieldset > p
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+	padding-bottom: 0.5rem;
+}
+
+input, select
+{
+    font-size: 1rem;
+	min-width: 20vw;
+}
+
+
+
+/*Table*/
+/*
+.table {
+	width: 70%;
 	border: none;
 	text-align: left;
 	padding-left: 70px;
@@ -87,9 +133,21 @@ tbody tr td:last-child {
 tr, th, td
 {
 	min-height: 25px;
-}
+}*/
 
 /*Button*/
+
+button
+{
+    width: 12vw;
+    min-width: fit-content;
+    font-size: 1rem;
+    padding: 0.8rem;
+    border: 0;
+    border-radius: 5px;
+    background-color: var(--gray);
+}
+/*
 .send-form
 {
 	margin-left: auto;
@@ -129,3 +187,4 @@ tr, th, td
 		0 2px 3px rgba(0,0,0,.5) inset,
 		0 1px 1px rgba(255,255,255,.1);
 }
+*/

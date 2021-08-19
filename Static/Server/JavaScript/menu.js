@@ -1,7 +1,7 @@
 "use strict"
-var statusMenu = "open";
+var statusMenu = 1;
 
-function MenuButton(){
+/*function MenuButton(){
 	var element = document.getElementsByClassName("item-text");
 	var menu = document.getElementById("Menu");
 
@@ -39,18 +39,18 @@ function OpenMenu(element, menu){
 		}}, 
 		500);
 }
-
-function MenuReportButton(){
+*/
+function MenuButton(){
 	var element = document.getElementsByClassName("item-text");
 	var menu = document.getElementById("Menu");
 
-	if (statusMenu == "open" || statusMenu == "process")
-		CloseReportMenu(element, menu);
-	else if (statusMenu == "close")
-		OpenReportMenu(element, menu);
+	if (statusMenu == 1)
+		CloseMenu(element, menu);
+	else
+		OpenMenu(element, menu);
 }
 
-function CloseReportMenu(element, menu)
+function CloseMenu(element, menu)
 {
 	addArrayProperty(element, 
 		`left: 0px;
@@ -60,16 +60,16 @@ function CloseReportMenu(element, menu)
 	addProperty(menu,
 		`width: 70px;
 		transition: .5s;`);
-	statusMenu = "close";
+	statusMenu = 0;
 }
 
-function OpenReportMenu(element, menu){
+function OpenMenu(element, menu){
 	addProperty(menu,
-		`width: 250px;
+		`width: 300px;
 		transition: .3s;`);
 	addArrayProperty(element, 
 		`left: 80px;
 		opacity: 1;
 		transition: opacity .75s, left .5s; `);
-	statusMenu = "process";
+	statusMenu = 1;
 }

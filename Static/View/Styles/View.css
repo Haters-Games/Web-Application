@@ -7,10 +7,10 @@
 
 menu
 {
-    width: 25vw;
+    width: 300px;
     /* height: 100vh; */
     background-color: var(--white);
-    float: right;
+    float: left;
     /* display: flex; */
     font-size: 1.2em;
 }
@@ -32,6 +32,7 @@ menu > ul
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
+	z-index: 1;
 }
 
 .item:last-child
@@ -44,7 +45,9 @@ menu > ul
     background-color: var(--gray);
 }
 
-form.menu-button-element
+.item-text
 {
-	margin-left:auto;
+	position: fixed;
+	left: 80px;
+	z-index: -1;
 }
