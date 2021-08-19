@@ -5,6 +5,7 @@
     width: 2.2rem;
     background-size: cover;
     border: 0;
+    z-index: 1;
 }
 
 .icon#menu
@@ -40,4 +41,39 @@
 .icon#back
 {
     background-image: url("../../Server/Pictures/Icons/back.svg");
+}
+
+.icon#thermometer
+{
+    background-image: url("../../Server/Pictures/Icons/thermometer.svg");
+}
+
+.icon#blob
+{
+    background-image: url("../../Server/Pictures/Icons/blob.svg");
+}
+
+.icon#flask
+{
+    background-image: url("../../Server/Pictures/Icons/flask.svg"); 
+}
+
+.icon#lamp
+{
+    background-image: url("../../Server/Pictures/Icons/lamp.svg");
+}
+
+.icon#leaves
+{
+    background-image: url("../../Server/Pictures/Icons/leaves.svg"); 
+}
+
+.icon#virus
+{
+    background-image: url("../../Server/Pictures/Icons/virus.svg");
+}
+
+.icon#gear
+{
+    background-image: url("../../Server/Pictures/Icons/gear.svg");
 }

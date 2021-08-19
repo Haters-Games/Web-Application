@@ -1,4 +1,4 @@
-from .forms import ReportForm
+from .forms import ReportMain, ReportLight,ReportMicroclimate,ReportWatering,ReportPhenology, ReportAnalyzes, ReportProtection
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -47,12 +47,21 @@ def _home(request):
 
 @login_required(redirect_field_name='')
 def _view(request):
-    return render(request, './View/index.html',  {'Report': ReportForm()})
+    return render(request, './View/index.html')
     
 @login_required(redirect_field_name='')
 def _create(request):
-    return render(request, './Create/index.html',  {'Report': ReportForm()})
+    return render(request, './Create/index.html',  
+    {
+        'ReportMain': ReportMain(),
+        'ReportLight': ReportLight(),
+        'ReportMicroclimate': ReportMicroclimate(),
+        'ReportWatering': ReportWatering(),
+        'ReportPhenology': ReportPhenology(),
+        'ReportAnalyzes': ReportAnalyzes(),
+        'ReportProtection': ReportProtection()
+    })
     
 @login_required(redirect_field_name='')
 def _report(request):
-    return render(request, './Report/index.html',  {'Report': ReportForm()})
+    return render(request, './Report/index.html')

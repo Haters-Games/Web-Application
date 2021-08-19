@@ -43,3 +43,7 @@ menu > ul
 {
     background-color: var(--gray);
 }
+
+form.menu-button-element{
+	margin-left:auto;
+}

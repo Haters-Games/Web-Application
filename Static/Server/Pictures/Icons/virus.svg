@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd">
+<!-- Created using Krita: https://krita.org -->
+<svg xmlns="http://www.w3.org/2000/svg" 
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    xmlns:krita="http://krita.org/namespaces/svg/krita"
+    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+    width="368.64pt"
+    height="368.64pt"
+    viewBox="0 0 368.64 368.64">
+<defs/>
+<path id="shape0" transform="translate(46.2803198817707, 39.5226797817804)" fill="none" stroke="#000000" stroke-width="14.399964" stroke-linecap="square" stroke-linejoin="bevel" d="M101.364 67.9781C81.9143 28.9438 80.4084 6.62021 96.8458 1.00742C113.283 -4.60537 124.108 13.2353 129.32 54.5294C130.923 62.9486 142.951 66.1559 165.402 64.1513C199.079 61.1445 177.429 16.6431 218.323 15.4403C259.216 14.2376 200.27 72.7295 199.114 78.6695C197.958 84.6095 206.153 110.219 223.134 116.471C240.114 122.722 284.185 91.483 287.48 121.883C289.677 142.149 269.895 149.983 228.134 145.384C220.666 148.409 209.945 179.778 214.904 184.172C219.081 187.196 270.364 213.776 256.81 237.143C235.275 253.242 219.677 215.73 197.876 212.487C158.327 211.913 161.297 233.758 159.912 235.478C157.309 244.161 157.873 276.728 147.361 286.455C127.04 297.559 119.344 279.209 124.274 231.405C127.793 220.999 101.017 200.937 74.5951 196.453C52.4485 203.32 38.0399 215.658 18.0663 216.095C8.27125 216.139 -2.83796 209.945 4.83616 192.04C19.4334 171.044 38.394 171.337 56.0522 168.706C60.4593 164.473 67.0289 132.028 59.5609 117.47C43.3117 111.44 33.223 112.622 7.84301 94.6182C-6.31962 82.8211 0.156027 70.9344 15.6608 65.151C33.3299 64.7633 55.1717 83.6551 64.9732 89.8072C84.2261 88.5262 96.3562 81.2498 101.364 67.9781Z"/><ellipse id="shape1" transform="translate(184.32, 132.48)" rx="10.08" ry="10.44" cx="10.08" cy="10.44" fill="none" stroke="#000000" stroke-width="7.2000036" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape2" transform="translate(203.76, 197.28)" rx="12.96" ry="13.32" cx="12.96" cy="13.32" fill="none" stroke="#000000" stroke-width="7.2000036" stroke-linecap="square" stroke-linejoin="bevel"/><ellipse id="shape3" transform="translate(146.88, 173.52)" rx="6.48" ry="5.39999999999999" cx="6.48" cy="5.39999999999999" fill="none" stroke="#000000" stroke-width="7.2000036" stroke-linecap="square" stroke-linejoin="bevel"/>
+</svg>

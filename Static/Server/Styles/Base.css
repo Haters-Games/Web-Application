@@ -31,8 +31,12 @@
 	font-family: Roboto, sans-serif;
 }
 
-html, body, main
+main
 {
-    width: 100vw;
 	height: 100vh;
+}
+
+menu
+{
+	opacity: .9;
 }
