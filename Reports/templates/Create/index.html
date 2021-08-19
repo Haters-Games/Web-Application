@@ -6,26 +6,121 @@
 		{% autoescape off %}
 			{% meta %}
 		{% endautoescape %}
+		
+		<script>
+			statusMenu = "close";
+		</script>
 	</head>
 	<body>
 		<main>
-			<table>
+			<menu id = "Menu">
+				<ul>
+					<li class="item">
+						<button class="icon" id="menu" onclick="MenuReportButton();"></button>
+						<span></span>
+					</li>
+					<li class="item">
+						<a class="icon" id="gear" type="submit" name="action" value="" href="#Main-block" title="Основные параметры"></a>
+						<span class="item-text">Основные</span>
+					</li>
+					<li class="item">
+						<a class="icon" id="lamp" type="submit" name="action" value="" href="#Light-block" title="Обеспеченность растений светом"></a>
+						<span class="item-text">Свет</span>
+					</li>
+					<li class="item">
+						<a class="icon" id="thermometer" type="submit" name="action" value="" href="#Microclimate-block" title="Микроклимат растений"></a>
+						<span class="item-text">Микроклимат</span>
+					</li>
+					<li class="item">
+						<a class="icon" id="blob" type="submit" name="action" href="#Watering-block" title="Полив растений"></a>
+						<span class="item-text">Полив растений</span>
+					</li>
+					<li class="item">
+						<a class="icon" id="leaves" type="submit" name="action" href="#Phenology-block" title="Фенология растений"></a>
+						<span class="item-text">Фенология</span>
+					</li>
+					<li class="item">
+						<a class="icon" id="flask" type="submit" name="action" href="#Analyzes-block" title="Анализы  агрохимлаборатории (анализы проводятся лаборантом и агрохимиком)"></a>
+						<span class="item-text">Анализы</span>
+					</li>
+					<li class="item">
+						<a class="icon" id="virus" type="submit" name="action" href="#Protect-block" title="Защита растений"></a>
+						<span class="item-text">Защита растений</span>
+					</li>
+				</ul>
+			</menu>
+		
+			<table class="table">
 				<thead>
 					<tr>
 					  <th scope="col">Параметры</th>
-					  <th scope="col">Дата</th>
+					  <th scope="col">Значения</th>
 					</tr>
 				 </thead>
-				<tbody>
+				<tbody id="tbody">
 					<form method="post" action="">
 						{% csrf_token %}
-						{{ Report }}
+						<tr><th id="Main-block"><th><th/></tr>
+						{% for field in ReportMain %}
+							<tr>
+								<td>{{ field.label_tag }}</td> 
+								<td>{{ field }} </td>
+							</tr>
+						{% endfor %}
+						
+						<tr><th scope="col" id="Light-block">Обеспеченность растений светом</th><th/></tr>
+						{% for field in ReportLight %}
+							<tr>
+								<td>{{ field.label_tag }}</td> 
+								<td>{{ field }} </td>
+							</tr>
+						{% endfor %}
+						
+						<tr><th scope="col" id="Microclimate-block">Микроклимат растений</th><th/></tr>
+						{% for field in ReportMicroclimate %}
+							<tr>
+								<td>{{ field.label_tag }}</td> 
+								<td>{{ field }} </td>
+							</tr>
+						{% endfor %}
+						
+						<tr><th scope="col" id="Watering-block">Полив растений</th><th/></tr>
+						{% for field in ReportWatering %}
+							<tr>
+								<td>{{ field.label_tag }}</td> 
+								<td>{{ field }} </td>
+							</tr>
+						{% endfor %}
+						
+						<tr><th scope="col" id="Phenology-block">Фенология растений</th><th/></tr>
+						{% for field in ReportPhenology %}
+							<tr>
+								<td>{{ field.label_tag }}</td> 
+								<td>{{ field }} </td>
+							</tr>
+						{% endfor %}
+
+						<tr><th scope="col" id="Analyzes-block">Анализы  агрохимлаборатории (анализы проводятся лаборантом и агрохимиком)</th><th/></tr>
+						{% for field in ReportAnalyzes %}
+							<tr>
+								<td>{{ field.label_tag }}</td> 
+								<td>{{ field }} </td>
+							</tr>
+						{% endfor %}
+						
+						<tr><th scope="col" id="Protect-block">Защита растений</th><th/></tr>
+						{% for field in ReportProtection %}
+							<tr>
+								<td>{{ field.label_tag }}</td> 
+								<td>{{ field }} </td>
+							</tr>
+						{% endfor %}
 					</form>
 				</tbody>
 			</table>
-			<form class="menu-button-element" action="/report/" method="post">
+			<form class="send-form" action="/report/" method="post">
 				{% csrf_token %}
-				<button type="submit" name="action">Отправить</button>
+				<button class="send-button" type="submit" name="action">Отправить</button>
 			</form>
 		</main>
 	</body>

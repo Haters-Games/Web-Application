@@ -39,37 +39,3 @@ function OpenMenu(element, menu){
 		}}, 
 		500);
 }
-
-function MenuReportButton(){
-	var element = document.getElementsByClassName("item-text");
-	var menu = document.getElementById("Menu");
-
-	if (statusMenu == "open" || statusMenu == "process")
-		CloseReportMenu(element, menu);
-	else if (statusMenu == "close")
-		OpenReportMenu(element, menu);
-}
-
-function CloseReportMenu(element, menu)
-{
-	addArrayProperty(element, 
-		`left: 0px;
-		opacity: 0;
-		transition: opacity .25s, left .5s; 
-		`);
-	addProperty(menu,
-		`width: 70px;
-		transition: .5s;`);
-	statusMenu = "close";
-}
-
-function OpenReportMenu(element, menu){
-	addProperty(menu,
-		`width: 250px;
-		transition: .3s;`);
-	addArrayProperty(element, 
-		`left: 80px;
-		opacity: 1;
-		transition: opacity .75s, left .5s; `);
-	statusMenu = "process";
-}
