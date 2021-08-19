@@ -5,4 +5,4 @@ from Reports.models import Report
 class ReportForm(ModelForm):
     class Meta:
         model = Report
-        fields = ['measurement_date', 'production_department', 'greenhouse', 'culture', 'growth_stage']
+        fields = [field.name for field in model._meta.get_fields()]

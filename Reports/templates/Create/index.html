@@ -1,0 +1,32 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html>
+	<head>
+		{% load templates %}
+		{% autoescape off %}
+			{% meta %}
+		{% endautoescape %}
+	</head>
+	<body>
+		<main>
+			<table>
+				<thead>
+					<tr>
+					  <th scope="col">Параметры</th>
+					  <th scope="col">Дата</th>
+					</tr>
+				 </thead>
+				<tbody>
+					<form method="post" action="">
+						{% csrf_token %}
+						{{ Report }}
+					</form>
+				</tbody>
+			</table>
+			<form class="menu-button-element" action="/report/" method="post">
+				{% csrf_token %}
+				<button type="submit" name="action">Отправить</button>
+			</form>
+		</main>
+	</body>
+</html>

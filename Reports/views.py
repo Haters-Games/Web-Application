@@ -48,3 +48,11 @@ def _home(request):
 @login_required(redirect_field_name='')
 def _view(request):
     return render(request, './View/index.html',  {'Report': ReportForm()})
+    
+@login_required(redirect_field_name='')
+def _create(request):
+    return render(request, './Create/index.html',  {'Report': ReportForm()})
+    
+@login_required(redirect_field_name='')
+def _report(request):
+    return render(request, './Report/index.html',  {'Report': ReportForm()})
