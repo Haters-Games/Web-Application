@@ -1,7 +1,13 @@
-from .forms import ReportMain, ReportLight,ReportMicroclimate,ReportWatering,ReportPhenology, ReportAnalyzes, ReportProtection
-from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.middleware.csrf import *
+from django.shortcuts import redirect, render
+from django.views.decorators.csrf import csrf_exempt, csrf_protect
+
+from .forms import (FullReport, ReportAnalyzes, ReportLight, ReportMain,
+                    ReportMicroclimate, ReportPhenology, ReportProtection,
+                    ReportWatering)
+
 # import logging
 
 
@@ -28,7 +34,6 @@ def auth(request):
                 return True
     return False
 
-
 def _login(request):
     """Функция отображения для страницы входа"""
     # Проверка, что пришла форма на выход из системы
@@ -48,9 +53,31 @@ def _home(request):
 @login_required(redirect_field_name='')
 def _view(request):
     return render(request, './View/index.html')
-    
+
+@csrf_protect
 @login_required(redirect_field_name='')
 def _create(request):
+    if request.POST.get('action') == 'send-report':
+        f = FullReport(request.POST)
+        if f.is_valid():
+            f.save()
+            return redirect('/home/')
+        else:
+            c = {}
+            c.update({'form': f})
+            c.update({
+            'ReportMain': ReportMain(),
+            'ReportLight': ReportLight(),
+            'ReportMicroclimate': ReportMicroclimate(),
+            'ReportWatering': ReportWatering(),
+            'ReportPhenology': ReportPhenology(),
+            'ReportAnalyzes': ReportAnalyzes(),
+            'ReportProtection': ReportProtection()
+            })
+
+            return render(request, './Create/index.html', c
+            )
+
     return render(request, './Create/index.html',  
     {
         'ReportMain': ReportMain(),

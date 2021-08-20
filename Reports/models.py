@@ -5,32 +5,6 @@ import decimal
 # from django.db.models.fields import SmallIntegerField
 # import django.contrib.auth
 
-
-class Menu(models.Model):
-    """
-    """
-
-    # Fields
-    field_name = "Меню для "
-    url = models.CharField(verbose_name='Применяется к странице', max_length=255)
-    # items = models.ArrayField(
-    #     models.CharField(max_length=15, blank=True, verbose_name='Название пункта'),
-    #     size=8,
-    #     verbose_name='Пункты меню'
-    # )
-    # items = models.JSONField(verbose_name='Пункты меню', default=dict)
-
-    # Metadata
-    class Meta:
-        # ordering = ["-url"]
-        verbose_name = "Меню"
-        verbose_name_plural = "Меню"
-
-    # Methods
-    def __str__(self):
-        return self.field_name + self.url
-
-
 # Таблицы выбора
 class Cultures(models.Model):
     """
