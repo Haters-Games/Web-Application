@@ -42,10 +42,28 @@ menu > ul
 	z-index: 1;
 }
 
+.item:last-child
+{
+    margin-top: auto;
+}
+
+.item:not(:first-child):hover
+{
+    background-color: var(--gray);
+}
+
+.icon
+{
+	display: flex;
+    align-items: center;
+}
+
 .item-text
 {
 	position: fixed;
     opacity: 0;
+	outline: 0;
+    color: black;
 }
 
 .wrapper

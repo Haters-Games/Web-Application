@@ -40,3 +40,8 @@ menu
 {
 	opacity: .9;
 }
+
+button
+{
+	font-size: 1rem;
+}

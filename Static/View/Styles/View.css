@@ -51,3 +51,9 @@ menu > ul
 	left: 80px;
 	z-index: -1;
 }
+
+.icon
+{
+	display: flex;
+    align-items: center;
+}

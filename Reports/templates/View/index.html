@@ -18,31 +18,35 @@
 					<li class="item">
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
-							<button class="icon" id="view" type="submit" name="action" value=""></button>
+							<button class="icon" id="view" type="submit" name="action" value="">
+								<span class="item-text">Открыть отчёт</span>
+							</button>
 						</form>
-						<span class="item-text">Открыть отчёт</span>
 					</li>
 					<li class="item">
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
-							<button class="icon" id="search" type="submit" name="action" value=""></button>
+							<button class="icon" id="search" type="submit" name="action" value="">
+								<span class="item-text">Поиск отчёта</span>
+							</button>
 						</form>
-						<span class="item-text">Поиск отчёта</span>
 					</li>
 					<li class="item">
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
-							<button class="icon" id="back" type="submit" name="action"></button>
+							<button class="icon" id="back" type="submit" name="action">
+								<span class="item-text">Назад</span>
+							</button>
 						</form>
-						<span class="item-text">Назад</span>
 					</li>
 
 					<li class="item">
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
-							<button class="icon" id="exit" type="submit" name="action" value="exit"></button>
+							<button class="icon" id="exit" type="submit" name="action" value="exit">
+								<span class="item-text">{{ user.get_username }}</span>
+							</button>
 						</form>
-						<span class="item-text">{{ user.get_username }}</span>
 					</li>
 				</ul>
 			</menu>

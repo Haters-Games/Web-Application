@@ -13,7 +13,6 @@
 				<ul>
 					<li class="item">
 						<button class="icon" id="menu" onclick="MenuButton();"></button>
-						<span></span>
 					</li>
 					<!--<li class="item">
 						<span class="item-text">Продолжить</span>
@@ -25,24 +24,27 @@
 					<li class="item">
 						<form class="menu-button-element" action="/create/" method="post">
 							{% csrf_token %}
-							<button class="icon" id="create" type="submit" name="action" value=""></button>
+							<button class="icon" id="create" type="submit" name="action" value="">
+								<span class="item-text">Создать отчёт</span>
+							</button>
 						</form>
-						<span class="item-text">Создать отчёт</span>
 					</li>
 					<li class="item">
 						<form class="menu-button-element" action="/view/" method="post">
 							{% csrf_token %}
-							<button class="icon" id="view" type="submit" name="action"></button>
+							<button class="icon" id="view" type="submit" name="action">
+								<span class="item-text">Просмотр отчёта</span>
+							</button>
 						</form>
-						<span class="item-text">Просмотр отчёта</span>
 					</li>
 
 					<li class="item">
 						<form class="menu-button-element" action="/login/" method="post">
 							{% csrf_token %}
-							<button class="icon" id="exit" type="submit" name="action" value="exit"></button>
-						</form>
-						<span class="item-text">{{ user.get_username }}</span>
+							<button class="icon" id="exit" type="submit" name="action" value="exit">
+								<span class="item-text">{{ user.get_username }}</span>
+							</button>
+						</form>	
 					</li>
 				</ul>
 			</menu>

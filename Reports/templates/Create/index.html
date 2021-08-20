@@ -17,40 +17,56 @@
 				<ul>
 					<li class="item">
 						<button class="icon" id="menu" onclick="MenuButton();"></button>
-						<span></span>
 					</li>
 					<li class="item">
-						<a class="icon" id="gear" type="submit" name="action" value="" href="#Main-block" title="Основные параметры"></a>
-						<span class="item-text">Основные</span>
+						<a class="icon" id="gear" type="submit" name="action" value="" href="#Main-block" title="Основные параметры">
+							<span class="item-text">Основные</span>
+						</a>		
 					</li>
 					<li class="item">
-						<a class="icon" id="lamp" type="submit" name="action" value="" href="#Light-block" title="Обеспеченность растений светом"></a>
-						<span class="item-text">Свет</span>
+						<a class="icon" id="lamp" type="submit" name="action" value="" href="#Light-block" title="Обеспеченность растений светом">
+							<span class="item-text">Свет</span>
+						</a>
 					</li>
 					<li class="item">
-						<a class="icon" id="thermometer" type="submit" name="action" value="" href="#Microclimate-block" title="Микроклимат растений"></a>
-						<span class="item-text">Микроклимат</span>
+						<a class="icon" id="thermometer" type="submit" name="action" value="" href="#Microclimate-block" title="Микроклимат растений">
+							<span class="item-text">Микроклимат</span>
+						</a>
 					</li>
 					<li class="item">
-						<a class="icon" id="blob" type="submit" name="action" href="#Watering-block" title="Полив растений"></a>
-						<span class="item-text">Полив растений</span>
+						<a class="icon" id="blob" type="submit" name="action" href="#Watering-block" title="Полив растений">
+							<span class="item-text">Полив растений</span>
+						</a>
+						
 					</li>
 					<li class="item">
-						<a class="icon" id="leaves" type="submit" name="action" href="#Phenology-block" title="Фенология растений"></a>
-						<span class="item-text">Фенология</span>
+						<a class="icon" id="leaves" type="submit" name="action" href="#Phenology-block" title="Фенология растений">
+							<span class="item-text">Фенология</span>
+						</a>
 					</li>
 					<li class="item">
-						<a class="icon" id="flask" type="submit" name="action" href="#Analyzes-block" title="Анализы  агрохимлаборатории (анализы проводятся лаборантом и агрохимиком)"></a>
-						<span class="item-text">Анализы</span>
+						<a class="icon" id="flask" type="submit" name="action" href="#Analyzes-block" title="Анализы  агрохимлаборатории (анализы проводятся лаборантом и агрохимиком)">
+							<span class="item-text">Анализы</span>
+						</a>
 					</li>
 					<li class="item">
-						<a class="icon" id="virus" type="submit" name="action" href="#Protect-block" title="Защита растений"></a>
-						<span class="item-text">Защита растений</span>
+						<a class="icon" id="virus" type="submit" name="action" href="#Protect-block" title="Защита растений">
+							<span class="item-text">Защита растений</span>
+						</a>
+					</li>
+					
+					<li class="item">
+						<form class="menu-button-element" action="/home/" method="post">
+							{% csrf_token %}
+							<button class="icon" id="back" type="submit" name="action">
+								<span class="item-text">Назад</span>
+							</button>
+						</form>
 					</li>
 				</ul>
 			</menu>
 			<div class=wrapper>
-				<form>
+				<form action="/create/" method="post">
 					{% csrf_token %}
 					<fieldset id="Main-block">
 						<legend>Основаная информация</legend>
@@ -94,7 +110,7 @@
 						<p>{{ field.label_tag }}{{ field }}</p>
 						{% endfor %}
 					</fieldset>
-					<button class="send-button" type="submit" name="action">Отправить</button>
+					<button class="send-button" type="submit" name="action" value="send-report">Отправить</button>
 				</form>
 			</div>
 			
