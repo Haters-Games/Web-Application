@@ -31,17 +31,13 @@ menu > ul
 
 form
 {
-	width: 75vw;
+	width: min-content;
 }
 
 .error {
     font-size: smaller;
     color: #FF0000;
     justify-content: flex-end;
-}
-
-.label_error {
-    color: #FF0000;
 }
 
 legend {
@@ -99,7 +95,7 @@ legend {
 fieldset
 {
 	display: flex;
-	width: 100%;
+	width: fit-content;
     flex-direction: column;
 	padding: 2rem;
 	margin-bottom: 1rem;
@@ -107,24 +103,26 @@ fieldset
 	border: 0;
 }
 
-fieldset > p
-{
+fieldset > p {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-	padding-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    flex-direction: column;
+	width: fit-content;
 }
 
 input, select
 {
     font-size: 1rem;
-    min-width: 25vw;
-    margin-left: 1rem;
+    width: 30vw;
+    padding: 5px;
 }
 
 .hide-comment
 {
-	justify-content: center;
+	display: flex;
+    width: calc(30vw + 14px);
+    justify-content: center;
+    flex-direction: row;
 }
 
 button

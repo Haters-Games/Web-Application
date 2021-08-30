@@ -172,7 +172,7 @@ class Report(models.Model):
     leaf_blade_index = property(getLeafBladeIndex) # Индекс листовой пластинки
     flowering_plants_number = models.PositiveIntegerField(verbose_name='Количество цветущих')
     fruits_on_plant = models.PositiveIntegerField(verbose_name='Количество плодов на растении')
-    fruit_avg_weight = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Средний вес плод')
+    fruit_avg_weight = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Средний вес плода')
     week_harvest = models.DecimalField(max_digits=6, decimal_places=2, verbose_name='Урожай за неделю')
     non_standard_products_percentage = models.DecimalField(max_digits=5, decimal_places=2, validators=[MinValueValidator(0.00), MaxValueValidator(100.00)], verbose_name='% нестандартной продукции')
 

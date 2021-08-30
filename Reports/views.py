@@ -1,5 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.middleware import csrf
 from django.middleware.csrf import *
 from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt, csrf_protect
@@ -63,20 +64,28 @@ def _create(request):
             f.save()
             return redirect('/home/')
         else:
-            c = {}
-            c.update({'form': f})
-            c.update({
-            'ReportMain': ReportMain(),
-            'ReportLight': ReportLight(),
-            'ReportMicroclimate': ReportMicroclimate(),
-            'ReportWatering': ReportWatering(),
-            'ReportPhenology': ReportPhenology(),
-            'ReportAnalyzes': ReportAnalyzes(),
-            'ReportProtection': ReportProtection()
-            })
+            f1 = ReportMain(request.POST)
+            f2 = ReportLight(request.POST)
+            f3 = ReportMicroclimate(request.POST)
+            f4 = ReportWatering(request.POST)
+            f5 = ReportPhenology(request.POST)
+            f6 = ReportAnalyzes(request.POST)
+            f7 = ReportProtection(request.POST)
 
-            return render(request, './Create/index.html', c
-            )
+            c = {}
+            c.update({
+                'ReportMain': f1,
+                'ReportLight': f2,
+                'ReportMicroclimate': f3,
+                'ReportWatering': f4,
+                'ReportPhenology': f5,
+                'ReportAnalyzes': f6,
+                'ReportProtection': f7
+                })
+
+            return render(request, './Create/index.html', c)
+
+
 
     return render(request, './Create/index.html',  
     {

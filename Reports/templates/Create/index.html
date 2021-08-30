@@ -69,126 +69,143 @@
 				<form action="/create/" method="post">
 					{% csrf_token %}
 					<fieldset id="Main-block">
-						<legend>Основаная информация</legend>
+						<legend id="toggle1">Основаная информация</legend>
+						<p style="display: none;" class="hide-comment">Нажмите на заголовок, чтобы раскрыть блок.</p>
 						{% for field in ReportMain %}
-						<p>{{ field.label_tag }}{{ field }}</p>
+							{% if field.errors %}
+								<p class="label_error">{{ field.label_tag }}{{ field }}</p>
+								{% for error in field.errors %}
+									<p class="error"> * {{ error }} </p>
+								{% endfor %}
+							{% endif %}
+
+							{% if not field.errors %}
+								<p>{{ field.label_tag }}{{ field }}</p>
+							{% endif %}
 						{% endfor %}
 					</fieldset>
 					<fieldset id="Light-block">
-					<legend>Обеспеченность растений светом</legend>
+					<legend id="toggle2">Обеспеченность растений светом</legend>
+					<p style="display: none;" class="hide-comment">Нажмите на заголовок, чтобы раскрыть блок.</p>
 						{% for field in ReportLight %}
-						<p>{{ field.label_tag }}{{ field }}</p>
+							{% if field.errors %}
+								<p class="label_error">{{ field.label_tag }}{{ field }}</p>
+								{% for error in field.errors %}
+									<p class="error"> * {{ error }} </p>
+								{% endfor %}
+							{% endif %}
+
+							{% if not field.errors %}
+								<p>{{ field.label_tag }}{{ field }}</p>
+							{% endif %}
 						{% endfor %}
 					</fieldset>
 					<fieldset id="Microclimate-block">
-					<legend>Микроклимат растений</legend>
+					<legend id="toggle3">Микроклимат растений</legend>
+					<p style="display: none;" class="hide-comment">Нажмите на заголовок, чтобы раскрыть блок.</p>
 						{% for field in ReportMicroclimate %}
-						<p>{{ field.label_tag }}{{ field }}</p>
+							{% if field.errors %}
+								<p class="label_error">{{ field.label_tag }}{{ field }}</p>
+								{% for error in field.errors %}
+									<p class="error"> * {{ error }} </p>
+								{% endfor %}
+							{% endif %}
+
+							{% if not field.errors %}
+								<p>{{ field.label_tag }}{{ field }}</p>
+							{% endif %}
 						{% endfor %}
 					</fieldset>
 					<fieldset id="Watering-block">
-					<legend>Полив растений</legend>
+					<legend id="toggle4">Полив растений</legend>
+					<p style="display: none;" class="hide-comment">Нажмите на заголовок, чтобы раскрыть блок.</p>
 						{% for field in ReportWatering %}
-						<p>{{ field.label_tag }}{{ field }}</p>
+							{% if field.errors %}
+								<p class="label_error">{{ field.label_tag }}{{ field }}</p>
+								{% for error in field.errors %}
+									<p class="error"> * {{ error }} </p>
+								{% endfor %}
+							{% endif %}
+
+							{% if not field.errors %}
+								<p>{{ field.label_tag }}{{ field }}</p>
+							{% endif %}
 						{% endfor %}
 					</fieldset>
 					<fieldset id="Phenology-block">
-					<legend>Фенология растений</legend>
+					<legend id="toggle5">Фенология растений</legend>
+					<p style="display: none;" class="hide-comment">Нажмите на заголовок, чтобы раскрыть блок.</p>
 						{% for field in ReportPhenology %}
-						<p>{{ field.label_tag }}{{ field }}</p>
+							{% if field.errors %}
+								<p class="label_error">{{ field.label_tag }}{{ field }}</p>
+								{% for error in field.errors %}
+									<p class="error"> * {{ error }} </p>
+								{% endfor %}
+							{% endif %}
+
+							{% if not field.errors %}
+								<p>{{ field.label_tag }}{{ field }}</p>
+							{% endif %}
 						{% endfor %}
 					</fieldset>
 					<fieldset id="Analyzes-block">
-					<legend>Анализы  агрохимлаборатории</legend>
+					<legend id="toggle6">Анализы  агрохимлаборатории</legend>
+					<p style="display: none;" class="hide-comment">Нажмите на заголовок, чтобы раскрыть блок.</p>
 						{% for field in ReportAnalyzes %}
-						<p>{{ field.label_tag }}{{ field }}</p>
+							{% if field.errors %}
+								<p class="label_error">{{ field.label_tag }}{{ field }}</p>
+								{% for error in field.errors %}
+									<p class="error"> * {{ error }} </p>
+								{% endfor %}
+							{% endif %}
+
+							{% if not field.errors %}
+								<p>{{ field.label_tag }}{{ field }}</p>
+							{% endif %}	
 						{% endfor %}
 					</fieldset>
 					<fieldset id="Protect-block">
-					<legend>Защита растений</legend>
+					<legend id="toggle7">Защита растений</legend>
+					<p style="display: none;" class="hide-comment">Нажмите на заголовок, чтобы раскрыть блок.</p>
 						{% for field in ReportProtection %}
-						<p>{{ field.label_tag }}{{ field }}</p>
+							{% if field.errors %}
+								<p class="label_error">{{ field.label_tag }}{{ field }}</p>
+								{% for error in field.errors %}
+									<p class="error"> * {{ error }} </p>
+								{% endfor %}
+							{% endif %}
+
+							{% if not field.errors %}
+								<p>{{ field.label_tag }}{{ field }}</p>
+							{% endif %}
 						{% endfor %}
 					</fieldset>
 					<button class="send-button" type="submit" name="action" value="send-report">Отправить</button>
 				</form>
 			</div>
-			
-			
-				<!--
-				<table class="table">
-					<thead>
-						<tr>
-						  <th scope="col">Параметры</th>
-						  <th scope="col">Значения</th>
-						</tr>
-					 </thead>
-					<tbody id="tbody">
-						<form method="post" action="">
-							{% csrf_token %}
-							<tr><th id="Main-block"><th><th/></tr>
-							{% for field in ReportMain %}
-								<tr>
-									<td>{{ field.label_tag }}</td> 
-									<td>{{ field }} </td>
-								</tr>
-							{% endfor %}
-							
-							<tr><th scope="col" id="Light-block">Обеспеченность растений светом</th><th/></tr>
-							{% for field in ReportLight %}
-								<tr>
-									<td>{{ field.label_tag }}</td> 
-									<td>{{ field }} </td>
-								</tr>
-							{% endfor %}
-							
-							<tr><th scope="col" id="Microclimate-block">Микроклимат растений</th><th/></tr>
-							{% for field in ReportMicroclimate %}
-								<tr>
-									<td>{{ field.label_tag }}</td> 
-									<td>{{ field }} </td>
-								</tr>
-							{% endfor %}
-							
-							<tr><th scope="col" id="Watering-block">Полив растений</th><th/></tr>
-							{% for field in ReportWatering %}
-								<tr>
-									<td>{{ field.label_tag }}</td> 
-									<td>{{ field }} </td>
-								</tr>
-							{% endfor %}
-							
-							<tr><th scope="col" id="Phenology-block">Фенология растений</th><th/></tr>
-							{% for field in ReportPhenology %}
-								<tr>
-									<td>{{ field.label_tag }}</td> 
-									<td>{{ field }} </td>
-								</tr>
-							{% endfor %}
-
-							<tr><th scope="col" id="Analyzes-block">Анализы  агрохимлаборатории (анализы проводятся лаборантом и агрохимиком)</th><th/></tr>
-							{% for field in ReportAnalyzes %}
-								<tr>
-									<td>{{ field.label_tag }}</td> 
-									<td>{{ field }} </td>
-								</tr>
-							{% endfor %}
-							
-							<tr><th scope="col" id="Protect-block">Защита растений</th><th/></tr>
-							{% for field in ReportProtection %}
-								<tr>
-									<td>{{ field.label_tag }}</td> 
-									<td>{{ field }} </td>
-								</tr>
-							{% endfor %}
-						</form>
-					</tbody>
-				</table>
-				<form class="send-form" action="/report/" method="post">
-					{% csrf_token %}
-					<button class="send-button" type="submit" name="action">Отправить</button>
-				</form>
-				-->
 		</main>
 	</body>
+	
+	<!-- jQuery -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+	<!-- Основной код -->
+	<script>
+		$(document).ready(function() {
+			$('#toggle1').on("click", function() { $('#Main-block p').toggle(); });
+
+			$('#toggle2').on("click", function() { $('#Light-block p').toggle(); });
+
+			$('#toggle3').on("click", function() { $('#Microclimate-block p').toggle(); });
+		
+			$('#toggle4').on("click", function() { $('#Watering-block p').toggle(); });
+
+			$('#toggle5').on("click", function() { $('#Phenology-block p').toggle(); });
+
+			$('#toggle6').on("click", function() { $('#Analyzes-block p').toggle(); });
+
+			$('#toggle7').on("click", function() { $('#Protect-block p').toggle(); });
+
+		});
+	</script>
 </html>
