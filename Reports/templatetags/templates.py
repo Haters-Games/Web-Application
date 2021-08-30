@@ -24,10 +24,10 @@ def meta(context):
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="stylesheet" type="text/css" href="''' + static + '''Server/Styles/Base.css">
     <link rel="stylesheet" type="text/css" href="''' + static + '''Server/Styles/Icons.css">
-    <link rel="stylesheet" type="text/css" href="''' + static + '''Server/Styles/Menu.css">
     <link rel="shortcut icon" type="image/x-icon" href="''' + static + '''Server/Pictures/favicon.ico">
     <script src="''' + static + '''Server/JavaScript/classManager.js"></script>
     <script src="''' + static + '''Server/JavaScript/menu.js"></script>
+    
     
     <!-- Дополнительная часть -->
     <link rel="stylesheet" type="text/css" href="''' + static + page + '''/Styles/''' + page + '''.css">
